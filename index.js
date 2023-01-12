@@ -25,6 +25,6 @@ app.get('/api/hello', function (req, res) {
 });
 app.use('/api', whoiam);
 // listen for requests :)
-var listener = app.listen(process.env.PORT || 3001, function () {
+var listener = app.listen(process.env.PORT || 3002, function () {
   console.log('Your app is listening on port ' + listener.address().port);
 });

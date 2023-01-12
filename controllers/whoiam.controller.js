@@ -5,11 +5,7 @@ const net    = require('node:net');
 const router = app.Router();
 
 router.get('/whoami', (req, res)=>{
-    return res.json({
-        ipaddress: req.ip ,
-        lenguage: req.rawHeaders[req.rawHeaders.indexOf('Accept-Language')+1],
-        software: req.rawHeaders[req.rawHeaders.indexOf('User-Agent')+1],
-    });
+    res.json({ipaddress: req.headers["x-forwarded-for"], language: req.headers["accept-language"], software:req.headers["user-agent"] })
 })
 
 module.exports = router;
